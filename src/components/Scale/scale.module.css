@@ -1,0 +1,33 @@
+.ratingWrapper {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: left;
+}
+
+.ratingWrapper input {
+  display: none;
+}
+
+.ratingWrapper label {
+  width: 100%;
+  min-width: 30px;
+  max-width: 74px;
+  height: 74px;
+  background: var(--lightGrey);
+  border: 2px solid var(--copyLightColor);
+  transition: all 0.2s;
+
+  cursor: pointer;
+}
+
+.ratingWrapper input:checked ~ label {
+  background: #CCC;
+}
+
+.ratingWrapper label:hover ~ label,
+.ratingWrapper label:hover,
+.ratingWrapper:not(:hover) input:checked ~ label,
+.ratingWrapper input:checked ~ label:hover,
+.ratingWrapper input:checked ~ label:hover ~ label {
+  background: var(--primaryColor);
+}
