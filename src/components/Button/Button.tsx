@@ -6,10 +6,12 @@ type Props = {
   onClick: (se: React.SyntheticEvent) => void
   children: React.ReactNode
   secondary?: boolean
+  disabled?: boolean
+  type?: 'button' | 'submit'
 }
 
 const Button = (props: Props) => {
-  const { children, secondary, onClick } = props
+  const { children, secondary, disabled, type = 'button', onClick } = props
 
   return (
     <button
@@ -17,6 +19,8 @@ const Button = (props: Props) => {
         [styles.secondaryButton]: secondary,
       })}
       onClick={onClick}
+      disabled={disabled}
+      type={type}
     >
       {children}
     </button>

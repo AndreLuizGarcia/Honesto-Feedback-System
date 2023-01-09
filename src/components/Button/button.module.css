@@ -11,6 +11,13 @@
   transition: var(--animDuration) var(--animEase);
 }
 
+.button:disabled {
+  background: #ACB1B6;
+  border-color: #ACB1B6;
+
+  pointer-events: none;
+}
+
 .button:hover {
   background-color: var(--copyLightColor);
   border-color: var(--primaryColor);
@@ -21,6 +28,10 @@
   background-color: transparent;
   border-color: var(--borderColor);
   color: var(--copyDarkColor);
+}
+
+.secondaryButton:disabled {
+  color: var(--copyLightColor);
 }
 
 .secondaryButton:hover {
