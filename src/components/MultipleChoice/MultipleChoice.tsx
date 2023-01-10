@@ -9,45 +9,43 @@ type Question = {
 
 type Props = {
   options: Question[]
-  initialValue?: number[]
-  onChange?: (fields: number[]) => void
+  initialValue?: number | null
+  disabled?: boolean
+  onChange?: (fields: number) => void
 }
 
-const MultipleChoice = ({ options, initialValue = [], onChange }: Props) => {
-  const [isCheck, setIsCheck] = React.useState<number[]>(initialValue)
+const MultipleChoice = ({
+  options,
+  initialValue = null,
+  disabled,
+  onChange,
+}: Props) => {
+  const [isCheck, setIsCheck] = React.useState<number | null>(initialValue)
 
   function handleOnChange(value: number) {
-    if (isCheck && isCheck.includes(value)) {
-      const newArray = isCheck.filter((item) => item !== value)
-      setIsCheck(newArray)
-      onChange && onChange(newArray)
-
-      return
-    }
-
-    setIsCheck((prev) => [...prev, value])
-    onChange && onChange([...isCheck, value])
+    setIsCheck(value)
+    onChange && onChange(value)
   }
 
   return (
     <div className={styles.wrapper}>
-      {options.map((item, index) => {
-        const checked = Array.isArray(isCheck) && isCheck.includes(item.value)
-
+      {options.map((item) => {
         return (
           <label
             key={item.value}
             htmlFor={`question-${item.value}`}
             className={classnames(styles.label, {
-              [styles.checked]: checked,
+              [styles.checked]: isCheck === item.value,
             })}
           >
             <input
-              type="checkbox"
+              type="radio"
               value={item.value}
               id={`question-${item.value}`}
-              checked={checked}
+              checked={isCheck === item.value}
               onChange={() => handleOnChange(item.value)}
+              disabled={disabled}
+              name="multiplechoice"
             />
             <p>{item.label}</p>
           </label>
