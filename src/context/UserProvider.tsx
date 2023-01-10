@@ -20,10 +20,12 @@ const reducer = (state: UserT[] | null, update: SetUsersT): UserT[] | null => {
   return state
 }
 
-const UIProvider = ({ children }: { children: React.ReactNode }): any => {
+const UIProvider = ({
+  children,
+}: {
+  children: React.ReactNode
+}): JSX.Element => {
   const [state, dispatch] = React.useReducer(reducer, [])
-
-  console.log('users', state)
 
   return (
     <DispatchUserContext.Provider value={dispatch}>
