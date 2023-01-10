@@ -7,7 +7,7 @@ export type QuestionT = {
   label: string
 }
 
-export type Question2T = QuestionT & {
+export type Question2T = Omit<QuestionT, 'type'> & {
   type: 'multipleChoice'
   options: {
     label: string
@@ -15,21 +15,23 @@ export type Question2T = QuestionT & {
   }[]
 }
 
+type Question = QuestionT | Question2T
+
 type DispatchQuestionContextT = any
 
 export const DispatchQuestionContext =
   React.createContext<DispatchQuestionContextT | null>(null)
-export const QuestionContext = React.createContext<QuestionT[] | null>(null)
+export const QuestionContext = React.createContext<Array<Question> | null>(null)
 
 type SetQuestionsT = {
   action: 'set'
-  payload: Array<QuestionT | Question2T>
+  payload: Array<Question>
 }
 
 const reducer = (
-  state: QuestionT[] | null,
+  state: Array<Question> | null,
   update: SetQuestionsT,
-): QuestionT[] | null => {
+): Array<Question> | null => {
   if (update.action === 'set') {
     return update.payload
   }
@@ -37,9 +39,12 @@ const reducer = (
   return state
 }
 
-const UIProvider = ({ children }: { children: React.ReactNode }): any => {
+const UIProvider = ({
+  children,
+}: {
+  children: React.ReactNode
+}): JSX.Element => {
   const [state, dispatch] = React.useReducer(reducer, [])
-  console.log('questions', state)
 
   return (
     <DispatchQuestionContext.Provider value={dispatch}>
