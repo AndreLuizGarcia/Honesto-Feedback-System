@@ -5,7 +5,7 @@
   display: inline-flex;
   flex-direction: column;
   justify-content: center;
-  padding: 7rem 7rem 3rem 7rem;
+  padding: 7rem;
 }
 
 .loginAs {
@@ -27,4 +27,10 @@
 .background {
   background-image: url(./background.png);
   background-size: cover;
+}
+
+@media screen and (max-width: 460px) {
+  .loginBox {
+    padding: 3rem;
+  }
 }
