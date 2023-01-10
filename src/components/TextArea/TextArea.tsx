@@ -4,30 +4,34 @@ import classnames from 'classnames'
 
 type Props = {
   initialValue?: string
-  onChange?: (value: string) => void
-  placeHolder?: string
-}
+  handleUpdateValue?: (value: string) => void
+} & React.TextareaHTMLAttributes<HTMLTextAreaElement>
 
 const TextArea = ({
   initialValue = '',
-  placeHolder = 'Say something',
-  onChange,
+  placeholder = 'Say something',
+  disabled,
+  handleUpdateValue,
+  ...props
 }: Props) => {
   const [value, setValue] = React.useState<string>(initialValue)
 
-  function handleOnChange(value: string) {
+  function handleOnChange(e: React.ChangeEvent<HTMLTextAreaElement>) {
+    const value = e.target.value
     setValue(value)
-    onChange && onChange(value)
+    handleUpdateValue && handleUpdateValue(value)
   }
 
   return (
     <textarea
       className={classnames(styles.textarea)}
-      placeholder={placeHolder}
+      placeholder={placeholder}
       rows={10}
       cols={100}
-      onChange={(e) => handleOnChange(e.target.value)}
+      onChange={handleOnChange}
       value={value}
+      disabled={disabled}
+      {...props}
     />
   )
 }

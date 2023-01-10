@@ -11,6 +11,8 @@
   align-items: center;
   justify-content: space-between;
   margin: 1rem 0 0.2rem 0;
+
+  cursor: pointer;
 }
 
 .label input {

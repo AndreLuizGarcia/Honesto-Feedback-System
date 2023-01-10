@@ -2,6 +2,11 @@
   display: flex;
   flex-direction: row-reverse;
   justify-content: left;
+  height: inherit;
+}
+
+.disabled {
+  pointer-events: none;
 }
 
 .ratingWrapper input {
@@ -10,9 +15,11 @@
 
 .ratingWrapper label {
   width: 100%;
-  min-width: 30px;
+  min-width: 34px;
   max-width: 74px;
-  height: 74px;
+  min-height: 34px;
+  height: inherit;
+
   background: var(--lightGrey);
   border: 2px solid var(--copyLightColor);
   transition: all 0.2s;
