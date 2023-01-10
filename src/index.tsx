@@ -7,17 +7,22 @@ import reportWebVitals from './reportWebVitals'
 import UserProvider from './context/UserProvider'
 import QuestionProvider from './context/QuestionProvider'
 import AccountProvider from './context/AccountProvider'
+import SubmittedFeedbackProvider from './context/SubmittedFeedbackProvider'
+import compose from './context/compose'
 
-worker.start().then(() => {
+worker.start({ onUnhandledRequest: 'bypass' }).then(() => {
+  const Providers = compose([
+    AccountProvider,
+    UserProvider,
+    QuestionProvider,
+    SubmittedFeedbackProvider,
+  ])
+
   ReactDOM.render(
     <React.StrictMode>
-      <AccountProvider>
-        <UserProvider>
-          <QuestionProvider>
-            <App />
-          </QuestionProvider>
-        </UserProvider>
-      </AccountProvider>
+      <Providers>
+        <App />
+      </Providers>
     </React.StrictMode>,
     document.getElementById('root'),
   )
