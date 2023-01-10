@@ -34,3 +34,58 @@
   border-right: var(--baseBorder);
   flex: 1;
 }
+
+.logout {
+  display: flex;
+  align-items: center;
+}
+
+.logout img {
+  margin-right: 1rem;
+  border-radius: 50%;
+  width: 58px;
+  height: 58px;
+
+  pointer-events: none;
+}
+
+.logout div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.logout div span {
+  color: #031323;
+}
+
+.logout div a {
+  padding: 0;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #59636E;
+}
+
+.displayFlex {
+  display: flex;
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  align-self: flex-start;
+  background: var(--primaryColor);
+  color: var(--copyLightColor);
+
+  width: 1rem;
+  height: 1rem;
+
+  border-radius: 50%;
+
+  font-size: var(--fs-sm);
+  line-height: 15px;
+}

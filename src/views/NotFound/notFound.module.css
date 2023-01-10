@@ -1,3 +1,23 @@
 .notFound {
+  background: #FFFFFF;
+  box-shadow: 0px 0px 0.3rem rgba(0, 0, 0, 0.25);
 
+  padding: 2rem;
+
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 800px;
+}
+
+.notFound span {
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-sm);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+
+  color: #59636E;
+}
+
+.notFound h1 {
+  margin-bottom: 2.5rem;
 }

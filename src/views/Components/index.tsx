@@ -6,6 +6,7 @@ import Progress from '../../components/Progress'
 import TextArea from '../../components/TextArea'
 import Scale from '../../components/Scale'
 import MultipleChoice from '../../components/MultipleChoice'
+import NoFeedback from '../../components/NoFeedback'
 
 const questions = [
   {
@@ -75,7 +76,10 @@ const Components = () => (
     />
     <TextArea />
     <MultipleChoice options={questions} />
-    <Scale />
+    <div style={{ height: '74px' }}>
+      <Scale name="Component page" initialValue={0} />
+    </div>
+    <NoFeedback />
   </MainLayout>
 )
 
