@@ -16,11 +16,16 @@ const UsersToList = () => {
   const { pathname } = useLocation()
   const isTeamFeedbackPage = pathname.includes('/team-feedback')
 
-  let firstUserToSelect: string | null = null
-
   const feedback = isTeamFeedbackPage
     ? feedbackToLoggedUser
     : feedbackFromLoggedUser
+
+  if (!id) {
+    const firstUserToSelect = isTeamFeedbackPage
+      ? `/team-feedback/${feedback[0].fromId}`
+      : `/my-feedback/${feedback[0].toId}`
+    history.push(firstUserToSelect)
+  }
 
   const usersToList = feedback.map((submittedAnswer, index) => {
     const userGivenFeedback = users!.filter((user) =>
@@ -32,11 +37,6 @@ const UsersToList = () => {
     const historyToPush = isTeamFeedbackPage
       ? `/team-feedback/${userGivenFeedback.id}`
       : `/my-feedback/${userGivenFeedback.id}`
-
-    if (!id && !firstUserToSelect) {
-      firstUserToSelect = historyToPush
-      history.push(firstUserToSelect)
-    }
 
     return (
       <li
