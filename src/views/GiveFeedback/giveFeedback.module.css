@@ -4,22 +4,24 @@
   max-width: 800px;
 }
 
-.users {
-  border: var(--baseBorder);
-  list-style-type: none;
-}
-
-.user {
-  align-items: center;
-  border-bottom: var(--baseBorder);
+.goBackButton {
   display: flex;
-  padding: 1rem;
+  align-items: center;
+
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-sm);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+
+  color: #59636E;
+
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  margin-bottom: 1rem;
 }
 
-.user:hover {
-  background-color: var(--primaryLightColor);
-}
-
-.user:last-child {
-  border-bottom: none;
+.goBackButton svg {
+  margin-right: 9px;
 }
