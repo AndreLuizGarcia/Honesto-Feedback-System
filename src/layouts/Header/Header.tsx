@@ -37,7 +37,6 @@ const Header = () => {
         ) : null}
       </NavLink>
       <NavLink
-        exact
         to="/my-feedback"
         activeClassName={styles.active}
         className={styles.displayFlex}
@@ -48,7 +47,6 @@ const Header = () => {
         ) : null}
       </NavLink>
       <NavLink
-        exact
         to="/team-feedback"
         activeClassName={styles.active}
         className={styles.displayFlex}
@@ -60,7 +58,11 @@ const Header = () => {
       </NavLink>
       <span className={styles.spacer} />
       <div className={styles.logout}>
-        <User avatarUrl={loggedUser?.avatarUrl} />
+        <User
+          avatarUrl={loggedUser?.avatarUrl}
+          name={loggedUser?.name}
+          displayName={false}
+        />
         <div>
           <span>{loggedUser?.name}</span>
           <NavLink exact to="/" onClick={handleLogout}>
