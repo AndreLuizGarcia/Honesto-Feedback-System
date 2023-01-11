@@ -147,7 +147,11 @@ const FeedbackForm = () => {
             <h1>{currentQuestion.label}</h1>
             <h2>Share your feedback for {userReceivingFeedback?.name}</h2>
           </div>
-          <User avatarUrl={userReceivingFeedback?.avatarUrl} />
+          <User
+            name={userReceivingFeedback?.name}
+            avatarUrl={userReceivingFeedback?.avatarUrl}
+            displayName={false}
+          />
         </div>
         <div className={styles.questionsWrapper}>
           <div className={styles.questions}>
