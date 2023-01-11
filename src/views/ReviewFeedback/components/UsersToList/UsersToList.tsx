@@ -16,6 +16,8 @@ const UsersToList = () => {
   const { pathname } = useLocation()
   const isTeamFeedbackPage = pathname.includes('/team-feedback')
 
+  let firstUserToSelect: string | null = null
+
   const feedback = isTeamFeedbackPage
     ? feedbackToLoggedUser
     : feedbackFromLoggedUser
@@ -31,8 +33,9 @@ const UsersToList = () => {
       ? `/team-feedback/${userGivenFeedback.id}`
       : `/my-feedback/${userGivenFeedback.id}`
 
-    if (!id) {
-      history.push(historyToPush)
+    if (!id && !firstUserToSelect) {
+      firstUserToSelect = historyToPush
+      history.push(firstUserToSelect)
     }
 
     return (
