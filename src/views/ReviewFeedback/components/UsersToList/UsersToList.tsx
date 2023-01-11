@@ -20,12 +20,15 @@ const UsersToList = () => {
     ? feedbackToLoggedUser
     : feedbackFromLoggedUser
 
-  if (!id) {
-    const firstUserToSelect = isTeamFeedbackPage
-      ? `/team-feedback/${feedback[0].fromId}`
-      : `/my-feedback/${feedback[0].toId}`
-    history.push(firstUserToSelect)
-  }
+  React.useEffect(() => {
+    if (!id) {
+      const firstUserToSelect = isTeamFeedbackPage
+        ? `/team-feedback/${feedback[0].fromId}`
+        : `/my-feedback/${feedback[0].toId}`
+      history.push(firstUserToSelect)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id])
 
   const usersToList = feedback.map((submittedAnswer, index) => {
     const userGivenFeedback = users!.filter((user) =>
