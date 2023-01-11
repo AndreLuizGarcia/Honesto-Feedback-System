@@ -42,15 +42,26 @@ const App = () => {
           <Route exact path="/">
             <Home />
           </Route>
-          <PrivateRoute isLoggedIn={isLoggedIn} exact path="/my-feedback">
+          <PrivateRoute isLoggedIn={isLoggedIn} exact path="/my-feedback/:id?">
             <ReviewFeedback />
           </PrivateRoute>
-          <PrivateRoute isLoggedIn={isLoggedIn} exact path="/share-feedback">
+          <PrivateRoute
+            isLoggedIn={isLoggedIn}
+            exact
+            path="/share-feedback/:id?"
+          >
             <GiveFeedback />
           </PrivateRoute>
-          <PrivateRoute isLoggedIn={isLoggedIn} exact path="/components">
-            <Components />
+          <PrivateRoute
+            isLoggedIn={isLoggedIn}
+            exact
+            path="/team-feedback/:id?"
+          >
+            <ReviewFeedback />
           </PrivateRoute>
+          <Route exact path="/components">
+            <Components />
+          </Route>
           <Route>
             <NotFound />
           </Route>
