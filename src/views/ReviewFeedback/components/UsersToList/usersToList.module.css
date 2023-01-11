@@ -1,0 +1,8 @@
+.user:hover {
+  background-color: var(--primaryLightColor);
+  cursor: pointer;
+}
+
+.active {
+  background: var(--lightGrey);
+}
