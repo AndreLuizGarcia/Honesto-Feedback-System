@@ -55,6 +55,7 @@ const AnswersToList = () => {
         scale: (
           <div className={styles.scaleWrapper}>
             <Scale
+              key={`${question?.id}-${id}`}
               initialValue={answers as number}
               name={question!.id}
               disabled

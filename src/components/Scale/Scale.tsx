@@ -32,7 +32,7 @@ const Scale = ({
       })}
     >
       {scale.map((_, index) => (
-        <React.Fragment key={`scale-${index}`}>
+        <React.Fragment key={`scale-${index}-${name}`}>
           <input
             type="radio"
             name={name}
