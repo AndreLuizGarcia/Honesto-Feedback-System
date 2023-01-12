@@ -52,3 +52,4 @@ After you've wrapped up your project, please record a simple video, going throug
 - Going through the feedback form
 - Giving multiple feedbacks
 - Logging out and in with a different user and checking the previously given feedback
+
