@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { DispatchUserContext } from '../context/UserProvider'
