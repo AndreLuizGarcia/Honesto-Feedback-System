@@ -14,7 +14,7 @@ const Scale = ({
   handleUpdateValue,
   ...props
 }: Props) => {
-  const [selected, setSelected] = React.useState<number>(() => initialValue)
+  const [selected, setSelected] = React.useState<number>(initialValue)
   const scale = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
 
   function handleOnChange(index: number) {
