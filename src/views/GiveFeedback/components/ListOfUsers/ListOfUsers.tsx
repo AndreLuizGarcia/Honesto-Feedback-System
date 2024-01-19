@@ -7,7 +7,7 @@ import styles from './listOfUsers.module.css'
 
 type Props = {
   users: UserT[] | null
-  title?: HTMLElement | ReactElement
+  title?: ReactElement
 }
 
 const ListOfUsers = ({ users, title }: Props) => {
